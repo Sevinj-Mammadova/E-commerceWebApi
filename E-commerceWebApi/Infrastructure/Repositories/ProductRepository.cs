@@ -18,7 +18,7 @@ namespace E_commerceWebApi.Infrastructure.Repositories
 
         public Task<List<Product>> AddProductsAsync(string name, decimal price)
         {
-            
+            return null;
         }
 
         public async Task<List<Product>> GetAllProductsAsync()

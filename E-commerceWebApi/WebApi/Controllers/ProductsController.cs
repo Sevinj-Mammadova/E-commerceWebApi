@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using E_commerceWebApi.Application.Products.Queries.GetAllProducts;
+using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_commerceWebApi.WebApi.Controllers
@@ -7,6 +9,17 @@ namespace E_commerceWebApi.WebApi.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly IMediator _mediator;
 
+        public ProductsController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetProducts()
+        {
+            var result = await _mediator.Send(new GetAllProductsQuery());
+            return Ok(result);
+        }
     }
 }

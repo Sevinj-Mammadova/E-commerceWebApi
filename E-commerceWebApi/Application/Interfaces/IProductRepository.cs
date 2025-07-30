@@ -5,6 +5,6 @@ namespace E_commerceWebApi.Application.Interfaces
     public interface IProductRepository
     {
         Task<List<Product>> GetAllProductsAsync();
-        Task<List<Product>> AddProductsAsync();
+        Task<List<Product>> AddProductsAsync(string name, decimal price);
     }
 }
