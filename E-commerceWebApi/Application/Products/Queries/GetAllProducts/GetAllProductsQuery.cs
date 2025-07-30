@@ -1,4 +1,5 @@
-﻿using E_commerceWebApi.Domain.Entities;
+﻿using AutoMapper;
+using E_commerceWebApi.Domain.Entities;
 using E_commerceWebApi.Infrastructure.Data;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
