@@ -1,5 +1,5 @@
 ﻿using E_commerceWebApi.Application.DTOs;
-using E_commerceWebApi.Application.Products.Commands;
+using E_commerceWebApi.Application.Products.Commands.AddProduct;
 using E_commerceWebApi.Application.Products.Queries.GetAllProducts;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -18,15 +18,15 @@ namespace E_commerceWebApi.WebApi.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> GetProducts( )
         {
             var result = await _mediator.Send(new GetAllProductsQuery());
             return Ok(result);
         }
-        [HttpPost]
-        public async Task<IActionResult> AddProduct([FromBody] AddProductCommand command)
+        [HttpPost("add-product")]
+        public async Task<IActionResult> AddProduct([FromBody] AddProductCommand addProductcommand)
         {
-            var result = await _mediator.Send(command);
+            var result = await _mediator.Send(addProductcommand);
             return Ok(result);
         }
     }

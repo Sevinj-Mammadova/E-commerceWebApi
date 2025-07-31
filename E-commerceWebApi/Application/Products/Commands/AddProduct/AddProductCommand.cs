@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using E_commerceWebApi.Application.DTOs;
+using E_commerceWebApi.Application.Products.DTOs;
 using E_commerceWebApi.Domain.Entities;
 using E_commerceWebApi.Infrastructure.Data;
 using MediatR;
 
-namespace E_commerceWebApi.Application.Products.Commands
+namespace E_commerceWebApi.Application.Products.Commands.AddProduct
 {
     public class AddProductCommand : IRequest<Product>
     {

@@ -1,4 +1,4 @@
-﻿namespace E_commerceWebApi.Application.DTOs
+﻿namespace E_commerceWebApi.Application.Products.DTOs
 {
     public class CreateProductDto
     {
