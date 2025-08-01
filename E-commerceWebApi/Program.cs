@@ -1,8 +1,10 @@
 using E_commerceWebApi.Application.Interfaces;
 using E_commerceWebApi.Infrastructure.Data;
 using E_commerceWebApi.Infrastructure.Repositories;
+using E_commerceWebApi.Infrastructure.Settings;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,8 @@ builder.Services.AddAutoMapper(
     typeof(E_commerceWebApi.Application.Products.Profiles.MappingProfiles).Assembly,
     typeof(E_commerceWebApi.Application.Orders.Profiles.MappingProfiles).Assembly);
 
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 
 
 
